@@ -27,8 +27,8 @@ class Song < ActiveRecord::Base
 
   end
 
-  def genre_name
-    self.genre ? self.genre.name : nil
+  def note_contents
+    Note.all
   end
 
 
