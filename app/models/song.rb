@@ -20,14 +20,18 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
-    self.notes = Note.create(:contents => contents)
+    contents.each do |note|
+      note = Note.create(:contents => note)
+      self.notes << note
+    end
+
   end
 
   def genre_name
     self.genre ? self.genre.name : nil
   end
 
-  
+
 
 
 end
